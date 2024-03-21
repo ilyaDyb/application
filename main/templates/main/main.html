@@ -12,8 +12,9 @@
     <!-- Навигационная панель -->
     <nav class="navbar">
         <ul>
-            <li><a href="#">Логин</a></li>
-            <li><a href="#">Регистрация</a></li>
+            <li><a href="{% url "user:login" %}">Log in</a></li>
+            <li><a href="{% url "user:registration" %}">Sign up</a></li>
+            <li><a href="{% url "user:logout" %}">Logout</a></li>
         </ul>
     </nav>
 
@@ -26,7 +27,7 @@
         
         <!-- Правая половина экрана для внутриигрового магазина -->
         <div class="store">
-            <h2>Магазин</h2>
+            <h2>Store</h2>
             <!-- Здесь будет содержимое магазина, например, предметы для покупки -->
         </div>
     </div>
