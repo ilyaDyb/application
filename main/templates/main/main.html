@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра</title>
+    <link rel="stylesheet" href="{% static "main/style.css" %}">
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Логин</a></li>
+            <li><a href="#">Регистрация</a></li>
+        </ul>
+    </nav>
+
+    <!-- Область игры -->
+    <div class="game-container">
+        <!-- Левая половина экрана для игры -->
+        <div class="game-area">
+            <!-- Здесь будет отображаться игровое поле -->
+        </div>
+        
+        <!-- Правая половина экрана для внутриигрового магазина -->
+        <div class="store">
+            <h2>Магазин</h2>
+            <!-- Здесь будет содержимое магазина, например, предметы для покупки -->
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+/* Стили для навигационной панели */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Стили для области игры */
+.game-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Стили для левой половины экрана (игровой области) */
+.game-area {
+    width: 50%;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Стили для правой половины экрана (магазина) */
+.store {
+    width: 45%;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
