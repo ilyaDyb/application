@@ -5,4 +5,5 @@ app_name = "main"
 
 urlpatterns = [
     path("", view=views.index, name="index"),
+    path("save-value/", view=views.save_value, name="save_value"),
 ]

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Игра</title>
     <link rel="stylesheet" href="{% static "main/style.css" %}">
+    <script src="{% static "jquery-3.7.0.min.js" %}"></script>
+    <script src="{% static "main/script.js" %}"></script>
 </head>
 <body>
     <!-- Навигационная панель -->
@@ -18,6 +20,7 @@
             {% if request.user.is_authenticated %}
                 <li><a href="{% url "user:logout" %}">Logout</a></li>
             {% endif %}
+            {% comment %} <li><a href="#">Table of leaders</a></li> В ближайшем будущем{% endcomment %}
         </ul>
     </nav>
 
@@ -25,7 +28,16 @@
     <div class="game-container">
         <!-- Левая половина экрана для игры -->
         <div class="game-area">
-            <!-- Здесь будет отображаться игровое поле -->
+            {% if request.user.is_authenticated %}
+            <button id="clicker_button">
+                <img src="{% static "main/images/button_for_click.png" %}" alt="" width="256" height="256">
+            </button>
+            {% csrf_token %}
+            <h1 id="score">0</h1>
+            {% else %}
+                <h1>To start playing, you need to log in :)</h1>
+            {% endif %}
+
         </div>
         
         <!-- Правая половина экрана для внутриигрового магазина -->
