@@ -4,6 +4,8 @@ $(document).on("click", "#clicker_button", function(e){
     var currentValue = parseInt(score.text());
 
     currentValue++;
+
+    $("#score").text(currentValue);
     
     updateScore(currentValue)
 });
@@ -18,8 +20,7 @@ function updateScore(currentValue){
             csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
         }, 
         success: function (data) {
-            console.log("Успешно");
-            var newValue = parseInt($("#score").text()) + 1;
+            var newValue = parseInt($("#score").text());
             $("#score").text(newValue)
             
         },
@@ -28,3 +29,18 @@ function updateScore(currentValue){
         },
     });
 }
+
+window.addEventListener('beforeunload', function(event) {
+    // Отправляем данные на сервер с помощью Ajax перед обновлением страницы
+    $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:8000/delete-data-from-cache/",
+        data: { csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val() },
+        success: function(data) {
+            $("#score").text(data.value);
+        },
+        error: function(xhr, status, error) {
+            console.error("Произошла ошибка при сохранении данных о кликах.");
+        },
+    });
+});

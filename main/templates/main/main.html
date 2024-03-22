@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>Игра</title>
     <link rel="stylesheet" href="{% static "main/style.css" %}">
     <script src="{% static "jquery-3.7.0.min.js" %}"></script>
@@ -33,7 +33,7 @@
                 <img src="{% static "main/images/button_for_click.png" %}" alt="" width="256" height="256">
             </button>
             {% csrf_token %}
-            <h1 id="score">0</h1>
+            <h1 id="score">{{ user.score }}</h1>
             {% else %}
                 <h1>To start playing, you need to log in :)</h1>
             {% endif %}
