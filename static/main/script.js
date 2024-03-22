@@ -1,5 +1,4 @@
 $(document).on("click", "#clicker_button", function(e){
-    e.preventDefault();
     var score = $("#score");
     var currentValue = parseInt(score.text());
 
