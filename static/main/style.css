@@ -30,21 +30,25 @@
 
 /* Стили для левой половины экрана (игровой области) */
 .game-area {
-    width: 40%;
+    /* width: 40%; */
     background-color: #ffffff;
     padding: 20px;
 }
 
 #clicker_button {
-    margin-left: 15%;
+    background-color: #fff;
+    /* margin-left: 15%; */
+    text-align: center;
+    transition: transform 0.1s ease;
 }
 
 #clicker_button:hover {
     cursor: pointer;
 }
 
-#score {
-    margin-left: 47%;
+#clicker_button.enlarged{
+    transform: scale(1.01);
 }
+
 
 /* Стили для правой половины экрана (магазина) */
