@@ -53,3 +53,10 @@ def delete_data_from_cache(request):
             return JsonResponse({"error": "No data found in cache"}, status=400)
     else:
         return JsonResponse({"error": "Invalid request method"}, status=405)
+    
+def leaderboard(request):
+    ...
+
+
+def boosts(request):
+    ...

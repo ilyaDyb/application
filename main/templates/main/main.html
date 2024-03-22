@@ -19,8 +19,9 @@
             {% endif %}
             {% if request.user.is_authenticated %}
                 <li><a href="{% url "user:logout" %}">Logout</a></li>
+                <li><a href="#">Boosts</a></li>
             {% endif %}
-            {% comment %} <li><a href="#">Table of leaders</a></li> В ближайшем будущем{% endcomment %}
+            <li><a href="#" style="margin-left:90%;">Leaderboard</a></li>
         </ul>
     </nav>
 
@@ -29,8 +30,8 @@
         <!-- Левая половина экрана для игры -->
         <div class="game-area">
             {% if request.user.is_authenticated %}
-            <button id="clicker_button">
-                <img src="{% static "main/images/button_for_click.png" %}" alt="" width="256" height="256">
+            <button id="clicker_button" style="display:flex; border:none; outline: none;">
+                <img src="{% static "main/images/button_for_click.png" %}" alt="button" width="512" height="512" style="pointer-events: none;">
             </button>
             {% csrf_token %}
             <h1 id="score">{{ user.score }}</h1>
@@ -39,11 +40,7 @@
             {% endif %}
 
         </div>
-        
-        <!-- Правая половина экрана для внутриигрового магазина -->
-        <div class="store">
-            <h2>Store</h2>
-        </div>
+
     </div>
 </body>
 </html>
