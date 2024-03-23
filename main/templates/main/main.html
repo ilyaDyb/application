@@ -8,13 +8,14 @@
     <title>Clicoin</title>
     <link rel="stylesheet" href="{% static "main/style.css" %}">
     <link rel="stylesheet" href="{% static "bootstrap.min.css" %}">
-    <script src="{% static "jquery-3.7.0.min.js" %}"></script>
-    <script src="{% static "main/script.js" %}"></script>
 </head>
 <body style="margin:0;">
     <!-- Навигационная панель -->
     {% include "includes\nav_bar.html" %}
-
+    {% if request.user.is_authenticated %}
+    <input type="hidden" name="hiddenTap" id="hiddenTap" value="{{ user.tap_ability }}">
+    <input type="hidden" name="hiddenAutoClick" id="hiddenAutoClick" value="{{ user.auto_click }}">
+    {% endif %}
     <!-- Область игры -->
     <div class="game-container">
         <!-- Левая половина экрана для игры -->
@@ -37,5 +38,7 @@
         </div>
 
     </div>
+    <script src="{% static "jquery-3.7.0.min.js" %}"></script>
+    <script src="{% static "main/script.js" %}"></script>
 </body>
 </html>

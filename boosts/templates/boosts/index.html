@@ -21,13 +21,13 @@
                 <p>{{ user.tap_ability }} lvl</p>
                 <input type="hidden" name="booster" value="tap_ability">
 
-                {% if user.tap_ability == 0 %}
-                <p>Price: <b>1000</b></p>
+                {% if user.tap_ability == 1 %}
+                <p>Price: <b>1 000</b></p>
                 <input type="hidden" name="price" value="1000">
                 <button type="submit">Buy</button>
 
-                {% elif user.tap_ability == 1 %}
-                <p>Price: <b>5000</b></p>
+                {% elif user.tap_ability == 2 %}
+                <p>Price: <b>5 000</b></p>
                 <input type="hidden" name="price" value="5000">
                 <button type="submit">Buy</button>
 
@@ -45,14 +45,44 @@
             {% if user.auto_click == 0 %}
                 <p>{{ user.auto_click }} lvl</p>
                 <input type="hidden" name="booster" value="auto_click">
-                <p>Price: <b>20000</b></p>
+                <p>Price: <b>20 000</b></p>
                 <input type="hidden" name="price" value="20000">
             <button type="submit">Buy</button>
             {% else %}
                 <p>Selled</p>
-            {% endif %}     
+            {% endif %}
+            
         </div>
         </form>
+        
+        <form action="#" method="POST">
+            {% csrf_token %}
+            <div class="boost">
+                <h3>Miner</h3>
+
+                <img src="{% static "boosts/images/miner.png" %}" width="64" height="64">
+                <p>0 lvl</p>
+                <input type="hidden" name="booster" value="auto_click">
+                <p>Price: <b>100 000</b></p>
+                <button type="submit" disabled>Buy</button>
+
+                
+            </div>
+            </form>
+
+        <form action="{% url "boosts:buy_ability" %}" method="POST">
+            {% csrf_token %}
+            <div class="boost">
+                <h3>What is it???</h3>
+
+                <img src="{% static "boosts/images/alien.png" %}" width="64" height="64">
+                <p>0 lvl</p>
+                <input type="hidden" name="booster" value="auto_click">
+                <p>Price: <b>1 000 000</b></p>
+                <button type="submit" disabled>Buy</button>
+                
+            </div>
+            </form>
         <!-- Add more boost items as needed -->
     </div>
     <script src="{% static "boosts/script.js" %}"></script>
