@@ -10,20 +10,9 @@
     <script src="{% static "jquery-3.7.0.min.js" %}"></script>
     <script src="{% static "main/script.js" %}"></script>
 </head>
-<body>
+<body style="margin:0;">
     <!-- Навигационная панель -->
-    <nav class="navbar">
-        <ul>
-            {% if not request.user.is_authenticated %}
-                <li><a href="{% url "user:login" %}">Log in</a></li>
-            {% endif %}
-            {% if request.user.is_authenticated %}
-                <li><a href="{% url "user:logout" %}">Logout</a></li>
-                <li><a href="#">Boosts</a></li>
-            {% endif %}
-            <li><a href="#" style="margin-left:90%;">Leaderboard</a></li>
-        </ul>
-    </nav>
+    {% include "includes\nav_bar.html" %}
 
     <!-- Область игры -->
     <div class="game-container">
@@ -31,10 +20,15 @@
         <div class="game-area">
             {% if request.user.is_authenticated %}
             <button id="clicker_button" style="display:flex; border:none; outline: none;">
-                <img src="{% static "main/images/button_for_click.png" %}" alt="button" width="512" height="512" style="pointer-events: none;">
+                <img src="{% static "main/images/bitcoin_button.png" %}" alt="button" width="512" height="512" style="pointer-events: none;">
             </button>
             {% csrf_token %}
-            <h1 id="score">{{ user.score }}</h1>
+            <h1 id="score" style="text-align: center;
+            font-size: 70px;
+            font-weight: 600;
+            color: #000;
+            text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+            0px 0px 20px #b393d3;">{{ user.score }}</h1>
             {% else %}
                 <h1>To start playing, you need to log in :)</h1>
             {% endif %}

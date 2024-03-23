@@ -43,3 +43,7 @@ window.addEventListener('beforeunload', function(event) {
         },
     });
 });
+
+$(document).on("click", "#clicker_button", function(){
+    this.classList.toggle("enlarged");
+})

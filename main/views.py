@@ -55,8 +55,8 @@ def delete_data_from_cache(request):
         return JsonResponse({"error": "Invalid request method"}, status=405)
     
 def leaderboard(request):
-    ...
-
-
-def boosts(request):
-    ...
+    users = User.objects.filter(score__gt=1).order_by("-score")
+    context = {
+        "users": users,
+    }
+    return render(request, "main/leaderboard.html", context=context)
