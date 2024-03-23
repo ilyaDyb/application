@@ -60,7 +60,3 @@ def leaderboard(request):
         "users": users,
     }
     return render(request, "main/leaderboard.html", context=context)
-
-
-def boosts(request):
-    ...

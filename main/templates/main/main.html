@@ -10,20 +10,9 @@
     <script src="{% static "jquery-3.7.0.min.js" %}"></script>
     <script src="{% static "main/script.js" %}"></script>
 </head>
-<body>
+<body style="margin:0;">
     <!-- Навигационная панель -->
-    <nav class="navbar">
-        <ul>
-            {% if not request.user.is_authenticated %}
-                <li><a href="{% url "user:login" %}">Log in</a></li>
-            {% endif %}
-            {% if request.user.is_authenticated %}
-                <li><a href="{% url "user:logout" %}">Logout</a></li>
-                <li><a href="#">Boosts</a></li>
-            {% endif %}
-                <li><a href="{% url "main:leaderboard" %}" style="margin-left:89%;">Leaderboard</a></li>
-        </ul>
-    </nav>
+    {% include "includes\nav_bar.html" %}
 
     <!-- Область игры -->
     <div class="game-container">

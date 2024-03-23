@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boosts</title>
+    <link rel="stylesheet" href="{% static "boosts/style.css" %}">
+</head>
+<body>
+    {% include "includes/nav_bar.html" %}
+    <div class="boosts-container">
+        <h2>Boosts</h2>
+        <div class="boost">
+            <h3>Boost 1</h3>
+            <p>Description of Boost 1</p>
+            <button>Buy</button>
+        </div>
+        <div class="boost">
+            <h3>Boost 2</h3>
+            <p>Description of Boost 2</p>
+            <button>Buy</button>
+        </div>
+        <!-- Add more boost items as needed -->
+    </div>
+</body>
+</html>

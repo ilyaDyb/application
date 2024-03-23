@@ -1,5 +1,5 @@
 /* Стили для навигационной панели */
-.navbar {
+/* .navbar {
     background-color: #333;
     color: #fff;
     padding: 10px;
@@ -19,25 +19,25 @@
 .navbar ul li a {
     color: #fff;
     text-decoration: none;
-}
+} */
 
-/* Стили для области игры */
+
 .game-container {
     display: flex;
     justify-content: center;
     padding: 20px;
 }
 
-/* Стили для левой половины экрана (игровой области) */
+
 .game-area {
-    /* width: 40%; */
+
     background-color: #ffffff;
     padding: 20px;
 }
 
 #clicker_button {
     background-color: #fff;
-    /* margin-left: 15%; */
+
     text-align: center;
     transition: transform 0.1s ease;
 }
@@ -49,6 +49,3 @@
 #clicker_button.enlarged{
     transform: scale(1.01);
 }
-
-
-/* Стили для правой половины экрана (магазина) */
