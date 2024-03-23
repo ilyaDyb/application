@@ -6,6 +6,9 @@ body {
 }
 
 .boosts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     max-width: 600px;
     margin: 50px auto;
     background-color: #fff;
@@ -15,10 +18,19 @@ body {
 }
 
 .boost {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 5px; */
+    width: 200px; /* Ширина каждого boost элемента */
+    margin: 10px; /* Отступ между элементами */
+    padding: 10px;
+    text-align: center;
+}
+
+img {
+    display: block; /* Делаем изображение блочным элементом */
+    margin: 0 auto 10px; /* Автоматический отступ сверху и снизу, и выравнивание по центру по горизонтали */
 }
 
 h2 {
