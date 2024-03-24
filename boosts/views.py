@@ -22,12 +22,36 @@ def buy_ability(request):
     if request.method == "POST":
         if request.POST.get("booster") == "tap_ability":
             user = request.user
-            if user.score >= int(request.POST.get("price")):
+
+            if int(request.POST.get("price")) == 3000000:
+                if user.score >= int(request.POST.get("price")):
+                    user.tap_ability = user.tap_ability + 13
+                    user.score = user.score - int(request.POST.get("price"))
+                    user.save()
+                    messages.success(request, "Successul")
+                    return redirect(reverse("boosts:index"))
+                else:
+                    messages.warning(request, "Not enough points")
+                    return redirect(reverse("boosts:index"))
+                
+            elif int(request.POST.get("price")) == 10000000:
+                if user.score >= int(request.POST.get("price")):
+                    user.tap_ability = user.tap_ability + 100
+                    user.score = user.score - int(request.POST.get("price"))
+                    user.save()
+                    messages.success(request, "Successul")
+                    return redirect(reverse("boosts:index"))
+                else:
+                    messages.warning(request, "Not enough points")
+                    return redirect(reverse("boosts:index"))
+                
+            elif user.score >= int(request.POST.get("price")):
                 user.tap_ability = user.tap_ability + 1
                 user.score = user.score - int(request.POST.get("price"))
                 user.save()
                 messages.success(request, "Successul")
                 return redirect(reverse("boosts:index"))
+            
             else:
                 messages.warning(request, "Not enough points")
                 return redirect(reverse("boosts:index"))

@@ -7,12 +7,18 @@
     <title>Score Converter</title>
     <link rel="stylesheet" href="{% static "main/trade_score/style.css" %}">
     <link rel="shortcut icon" href="{% static "favicon.ico" %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static "boosts/style.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap.min.css" %}">
+    <script src="{% static "jquery-3.7.0.min.js" %}"></script>
 </head>
 <body>
+    {% include "includes/nav_bar.html" %}
+    {% include "includes/notifications.html" %}
     <div class="container">
         <h1>Score to Dollars Converter</h1>
         <input type="number" id="score" placeholder="Enter your game score">
-        <button onclick="convertScore()">Convert</button>
+        <button id="convertButton" style="margin-top:100px;">Convert</button>
+        {% csrf_token %}
         <p id="result"></p>
     </div>
 
