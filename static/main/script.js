@@ -20,10 +20,27 @@ if (hiddenAutoClick.val() == "1") {
         var tapValue = $("#hiddenTap").val();
         currentValue += parseInt(tapValue);
         $("#score").text(currentValue);
-        // Вывод значения в консоль
-        console.log(currentValue);
-    }, 1000); // Интервал в миллисекундах (например, каждую секунду)
+    }, 1000);
 }
+else if (hiddenAutoClick.val() == "2") {
+    var interval = setInterval(function() {
+        var score = $("#score");
+        var currentValue = parseInt(score.text());
+        var tapValue = $("#hiddenTap").val();
+        currentValue += parseInt(tapValue);
+        $("#score").text(currentValue);
+    }, 500);
+}
+
+else if (hiddenAutoClick.val() == "3") {
+    var interval = setInterval(function() {
+        var score = $("#score");
+        var currentValue = parseInt(score.text());
+        var tapValue = $("#hiddenTap").val();
+        currentValue += parseInt(tapValue);
+        $("#score").text(currentValue);
+    }, 200);
+};
 
 function updateScore(currentValue){
     $.ajax({

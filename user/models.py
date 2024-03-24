@@ -9,8 +9,8 @@ class User(AbstractUser):
     tap_ability = models.IntegerField(default=1)
     auto_click = models.IntegerField(default=0)
     miner = models.IntegerField(default=0)
-    boost = models.IntegerField(default=0)
     end_game = models.BooleanField(default=False)
+    balance = models.DecimalField(default=0, max_digits=11, decimal_places=6)
     
     class Meta:
         db_table = "user"

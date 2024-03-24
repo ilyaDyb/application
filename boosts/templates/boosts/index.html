@@ -32,8 +32,40 @@
                 <input type="hidden" name="price" value="5000">
                 <button type="submit">Buy</button>
 
-                {% else %}
-                <p>Selled</p>
+                {% elif user.tap_ability == 3 %}
+                <p>Price: <b>100 000</b></p>
+                <input type="hidden" name="price" value="100000">
+                <button type="submit">Buy</button>
+
+                {% elif user.tap_ability == 4 %}
+                <p>Price: <b>200 000</b></p>
+                <input type="hidden" name="price" value="100000">
+                <button type="submit">Buy</button>
+
+                {% elif user.tap_ability == 5 %}
+                <p>Price: <b>1 000 000</b></p>
+                <input type="hidden" name="price" value="1000000">
+                <button type="submit">Buy</button>
+
+                {% elif user.tap_ability == 6 %}
+                <p>Price: <b>2 000 000</b></p>
+                <input type="hidden" name="price" value="2000000">
+                <button type="submit">Buy</button>
+
+                {% elif user.tap_ability == 7 %}
+                <p>Price: <b>3 000 000</b></p>
+                <input type="hidden" name="price" value="3000000">
+                <button type="submit">Buy</button>
+
+                {% elif user.tap_ability == 20 %}
+                <p>Price: <b>10 000 000</b></p>
+                <input type="hidden" name="price" value="10000000">
+                <button type="submit">Buy</button>
+
+
+                {% elif user.tap_ability == 120 %}
+                <p>Price: <b>Selled</b></p>
+                <button type="submit" disabled>Buy</button>
                 {% endif %}  
             </div>
         </form>
@@ -49,8 +81,25 @@
                 <p>Price: <b>20 000</b></p>
                 <input type="hidden" name="price" value="20000">
             <button type="submit">Buy</button>
+
+            {% elif user.auto_click == 1 %}
+                <p>{{ user.auto_click }} lvl</p>
+                <input type="hidden" name="booster" value="auto_click">
+                <p>Price: <b>200 000</b></p>
+                <input type="hidden" name="price" value="200000">
+                <button type="submit">Buy</button>
+
+            {% elif user.auto_click == 2 %}
+                <p>{{ user.auto_click }} lvl</p>
+                <input type="hidden" name="booster" value="auto_click">
+                <p>Price: <b>1 000 000</b></p>
+                <input type="hidden" name="price" value="1000000">
+                <button type="submit">Buy</button>
+
             {% else %}
-                <p>Selled</p>
+                <p>{{ user.auto_click }} lvl</p>
+                <p>Price: <b>Selled</b></p>
+                <button type="submit" disabled>Buy</button>
             {% endif %}
             
         </div>
@@ -70,32 +119,24 @@
             </div>
         </form>
 
-        <form action="" method="POST">
+        <form action="{% url "boosts:end_game" %}" method="POST">
             {% csrf_token %}
             <div class="boost">
                 <h3>What is it???</h3>
 
                 <img src="{% static "boosts/images/end_game.png" %}" width="64" height="64">
+                {% if not user.end_game %}
                 <p>0 lvl</p>
                 <p>Price: <b>9 999 999</b></p>
+                <button type="submit">Buy</button>
+                {% else %}
+                <p>{% if user.end_game == True %}1 {% else %}0{% endif %}lvl</p>
+                <p>Price: <b>Selled</b></p>
                 <button type="submit" disabled>Buy</button>
+                {% endif %}
                 
             </div>
         </form>
-
-        <form action="{% url "boosts:buy_ability" %}" method="POST">
-            {% csrf_token %}
-            <div class="boost">
-                <h3>Boost</h3>
-
-                <img class="boost-img"src="{% static "boosts/images/boost.png" %}" width="64" height="64">
-                <p>0 lvl</p>
-                <p>Price: <b>200 000</b></p>
-                <button type="submit" disabled>Buy</button>
-                
-            </div>
-        </form>
-        <!-- Add more boost items as needed -->
     </div>
     <script src="{% static "boosts/script.js" %}"></script>
     <script src="{% static "bootstrap.bundle.min.js" %}"></script>

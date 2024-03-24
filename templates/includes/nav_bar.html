@@ -36,5 +36,10 @@
         {% if user.end_game %}
             <li><a href="{% url "main:trade_score" %}">Trade score</a></li>
         {% endif %}
+        {% if request.user.is_authenticated %}
+            {% if user.balance != 0 %}
+                <li id="balance">Your balance: <strong>{{ user.balance }}</strong>$</li>
+            {% endif %}
+        {% endif %}
     </ul>
 </nav>
