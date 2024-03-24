@@ -16,7 +16,7 @@ def index(request):
     context = {
         "user": user,
     }
-
+    
     return render(request, "main\main.html", context=context)
 
 
@@ -54,9 +54,19 @@ def delete_data_from_cache(request):
     else:
         return JsonResponse({"error": "Invalid request method"}, status=405)
     
+    
 def leaderboard(request):
     users = User.objects.filter(score__gt=1).order_by("-score")
     context = {
         "users": users,
     }
     return render(request, "main/leaderboard.html", context=context)
+
+
+@login_required()
+def trade_score(request):
+    user = request.user
+    if user.end_game == True:
+        return render(request, "main/trade_score.html")
+    else:
+        return HttpResponse(status=404)

@@ -1,16 +1,31 @@
 $(document).on("click", "#clicker_button", function(e){
     var score = $("#score");
     var currentValue = parseInt(score.text());
+    var tapValue = $("#hiddenTap").val();
 
-    currentValue++;
+    tapValue = parseInt(tapValue);
+    
+    currentValue += tapValue;
 
     $("#score").text(currentValue);
     
     updateScore(currentValue)
 });
 
+var hiddenAutoClick = $("#hiddenAutoClick")
+if (hiddenAutoClick.val() == "1") {
+    var interval = setInterval(function() {
+        var score = $("#score");
+        var currentValue = parseInt(score.text());
+        var tapValue = $("#hiddenTap").val();
+        currentValue += parseInt(tapValue);
+        $("#score").text(currentValue);
+        // Вывод значения в консоль
+        console.log(currentValue);
+    }, 1000); // Интервал в миллисекундах (например, каждую секунду)
+}
+
 function updateScore(currentValue){
-    console.log(currentValue)
     $.ajax({
         type: "POST",
         url: "http://127.0.0.1:8000/save-value/",

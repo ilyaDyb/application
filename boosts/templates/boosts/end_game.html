@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End of Game</title>
+    <link rel="shortcut icon" href="{% static "favicon.ico" %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static "boosts/end_game/style.css" %}">
+    <link rel="stylesheet" href="{% static "boosts/style.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap.min.css" %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Game Over</h1>
+        <h2>Congratulations! You have completed the game.</h2>
+        <h3>Now you can to trade your score for <strong>dollars $</strong></h3>
+        <form action="{% url "boosts:end_game" %}" method="post">
+            <button class="button" type="submit">Trade your score</button>
+        </form>
+    </div>
+</body>
+</html>

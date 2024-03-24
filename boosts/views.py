@@ -45,3 +45,14 @@ def buy_ability(request):
                 return redirect(reverse("boosts:index"))
     else:
         return HttpResponse(status=404)
+
+
+@login_required()
+def end_game(request):
+    if request.method == "POST":
+        user = request.user
+        user.end_game = True
+        user.save()
+        return redirect(reverse("main:index"))
+    else:
+        return HttpResponse(status=404)

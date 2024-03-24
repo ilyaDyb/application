@@ -8,13 +8,15 @@
     <title>Clicoin</title>
     <link rel="stylesheet" href="{% static "main/style.css" %}">
     <link rel="stylesheet" href="{% static "bootstrap.min.css" %}">
-    <script src="{% static "jquery-3.7.0.min.js" %}"></script>
-    <script src="{% static "main/script.js" %}"></script>
+    <link rel="shortcut icon" href="{% static "favicon.ico" %}" type="image/x-icon">
 </head>
 <body style="margin:0;">
     <!-- Навигационная панель -->
     {% include "includes\nav_bar.html" %}
-
+    {% if request.user.is_authenticated %}
+    <input type="hidden" name="hiddenTap" id="hiddenTap" value="{{ user.tap_ability }}">
+    <input type="hidden" name="hiddenAutoClick" id="hiddenAutoClick" value="{{ user.auto_click }}">
+    {% endif %}
     <!-- Область игры -->
     <div class="game-container">
         <!-- Левая половина экрана для игры -->
@@ -30,6 +32,7 @@
             color: #000;
             text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
             0px 0px 20px #b393d3;">{{ user.score }}</h1>
+            {% comment %} <button class="save-score-Button" type="button">Сохранить прогресс</button> {% endcomment %}
             {% else %}
                 <h1>To start playing, you need to log in :)</h1>
             {% endif %}
@@ -37,5 +40,7 @@
         </div>
 
     </div>
+    <script src="{% static "jquery-3.7.0.min.js" %}"></script>
+    <script src="{% static "main/script.js" %}"></script>
 </body>
 </html>
