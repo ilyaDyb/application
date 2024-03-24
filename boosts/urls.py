@@ -7,4 +7,5 @@ app_name = "boosts"
 urlpatterns = [
     path("", views.index, name="index"),
     path("buy_ability", views.buy_ability, name="buy_ability"),
+    path("end-game", views.end_game, name="end_game"),
 ]

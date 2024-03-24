@@ -8,6 +8,9 @@ class User(AbstractUser):
     score = models.BigIntegerField(default=0)
     tap_ability = models.IntegerField(default=1)
     auto_click = models.IntegerField(default=0)
+    miner = models.IntegerField(default=0)
+    boost = models.IntegerField(default=0)
+    end_game = models.BooleanField(default=False)
     
     class Meta:
         db_table = "user"

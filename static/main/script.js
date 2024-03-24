@@ -12,11 +12,9 @@ $(document).on("click", "#clicker_button", function(e){
     updateScore(currentValue)
 });
 
+var hiddenAutoClick = $("#hiddenAutoClick")
 if (hiddenAutoClick.val() == "1") {
     var interval = setInterval(function() {
-    var hiddenAutoClick = $("#hiddenAutoClick")
-
-
         var score = $("#score");
         var currentValue = parseInt(score.text());
         var tapValue = $("#hiddenTap").val();

@@ -7,6 +7,7 @@
     <title>Boosts</title>
     <link rel="stylesheet" href="{% static "boosts/style.css" %}">
     <link rel="stylesheet" href="{% static "bootstrap.min.css" %}">
+    <link rel="shortcut icon" href="{% static "favicon.ico" %}" type="image/x-icon">
 </head>
 <body>
     {% include "includes/nav_bar.html" %}
@@ -60,29 +61,40 @@
             <div class="boost">
                 <h3>Miner</h3>
 
-                <img src="{% static "boosts/images/miner.png" %}" width="64" height="64">
+                <img src="{% static "boosts/images/miner_btc.png" %}" width="64" height="64">
                 <p>0 lvl</p>
-                <input type="hidden" name="booster" value="auto_click">
                 <p>Price: <b>100 000</b></p>
                 <button type="submit" disabled>Buy</button>
 
                 
             </div>
-            </form>
+        </form>
 
-        <form action="{% url "boosts:buy_ability" %}" method="POST">
+        <form action="" method="POST">
             {% csrf_token %}
             <div class="boost">
                 <h3>What is it???</h3>
 
-                <img src="{% static "boosts/images/alien.png" %}" width="64" height="64">
+                <img src="{% static "boosts/images/end_game.png" %}" width="64" height="64">
                 <p>0 lvl</p>
-                <input type="hidden" name="booster" value="auto_click">
-                <p>Price: <b>1 000 000</b></p>
+                <p>Price: <b>9 999 999</b></p>
                 <button type="submit" disabled>Buy</button>
                 
             </div>
-            </form>
+        </form>
+
+        <form action="{% url "boosts:buy_ability" %}" method="POST">
+            {% csrf_token %}
+            <div class="boost">
+                <h3>Boost</h3>
+
+                <img class="boost-img"src="{% static "boosts/images/boost.png" %}" width="64" height="64">
+                <p>0 lvl</p>
+                <p>Price: <b>200 000</b></p>
+                <button type="submit" disabled>Buy</button>
+                
+            </div>
+        </form>
         <!-- Add more boost items as needed -->
     </div>
     <script src="{% static "boosts/script.js" %}"></script>

@@ -16,7 +16,7 @@ def index(request):
     context = {
         "user": user,
     }
-
+    
     return render(request, "main\main.html", context=context)
 
 
@@ -61,3 +61,12 @@ def leaderboard(request):
         "users": users,
     }
     return render(request, "main/leaderboard.html", context=context)
+
+
+@login_required()
+def trade_score(request):
+    user = request.user
+    if user.end_game == True:
+        return render(request, "main/trade_score.html")
+    else:
+        return HttpResponse(status=404)

@@ -8,6 +8,7 @@
     <title>Clicoin</title>
     <link rel="stylesheet" href="{% static "main/style.css" %}">
     <link rel="stylesheet" href="{% static "bootstrap.min.css" %}">
+    <link rel="shortcut icon" href="{% static "favicon.ico" %}" type="image/x-icon">
 </head>
 <body style="margin:0;">
     <!-- Навигационная панель -->
@@ -31,6 +32,7 @@
             color: #000;
             text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
             0px 0px 20px #b393d3;">{{ user.score }}</h1>
+            {% comment %} <button class="save-score-Button" type="button">Сохранить прогресс</button> {% endcomment %}
             {% else %}
                 <h1>To start playing, you need to log in :)</h1>
             {% endif %}
